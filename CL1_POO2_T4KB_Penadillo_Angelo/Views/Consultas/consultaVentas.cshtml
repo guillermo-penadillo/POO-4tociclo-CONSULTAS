@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CL1_POO2_T4KB_Penadillo_Angelo.Models.usp_consulta_ventas>
+
+@{
+    ViewBag.Title = "consultaVentas";
+}
+
+<h2>Listado de Ventas</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Lista:
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.num_vta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fec_vta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_art)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.num_vta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fec_vta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_art)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

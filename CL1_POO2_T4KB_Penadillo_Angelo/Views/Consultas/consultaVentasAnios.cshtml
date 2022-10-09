@@ -1,0 +1,84 @@
+﻿@model IEnumerable<CL1_POO2_T4KB_Penadillo_Angelo.Models.usp_ventas_años>
+
+@{
+    ViewBag.Title = "consultaVentasAnios";
+}
+
+<h2>Consulta de Ventas entre Años</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Año 1: <input type="text"
+                                  name="year1"
+                                  value="@ViewBag.YEAR1" />
+        <br />
+        Año 2: <input type="text"
+                                  name="year2"
+                                  value="@ViewBag.YEAR2" />
+        <br />
+        <input type="submit"
+               value="Consultar"
+               class="btn btn-success" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.num_vta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fec_vta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tot_vta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_ven)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecing_ven)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.num_vta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fec_vta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tot_vta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_ven)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecing_ven)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    <p>
+        Número de registros:  <input type="text"
+                                     name="cantidad"
+                                     value="@ViewBag.CANTIDAD" 
+                                     readonly/>
+    </p>
+</div>
